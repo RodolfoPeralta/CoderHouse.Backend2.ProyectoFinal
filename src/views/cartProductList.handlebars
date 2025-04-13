@@ -1,0 +1,21 @@
+<div class="cartProductListContainer">
+    <h2>Lista de productos</h2>
+    <div class="productList">
+        {{#if error}}
+            <p>Error leyendo productos desde la base de datos.</p>
+        {{else}}
+            {{#if products.length}}
+                    {{#each products}}
+                        <div class="cartProductListItem">
+                            <span>Título:</span> {{this.title}} <br>
+                            <span>Descripción:</span> {{this.description}} <br>
+                            <span>Precio:</span> ${{this.price}} <br><br>
+                            <span>Quantity:</span> {{this.quantity}}
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <p>No hay productos que mostrar.</p>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>

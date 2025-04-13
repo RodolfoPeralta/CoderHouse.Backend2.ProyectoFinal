@@ -1,0 +1,21 @@
+<div class="cartsContainer">
+   <h2>Lista de carritos</h2>
+   <div id="cartContainer" class="carts">
+        {{#if error}}
+            <p>Error leyendo productos desde la base de datos.</p>
+            {{else}}
+                {{#if carts.length}}
+                        {{#each carts}}
+                            <div class="cart-item">
+                                <span>Cart:</span> {{this._id}}<br>
+                                <button class="select-cart" data-id="{{this._id}}">Ver Productos</button>
+                            </div>
+                        {{/each}}
+                    {{else}}
+                        <p>No hay Carritos que mostrar.</p>
+                {{/if}}
+        {{/if}}
+   </div> 
+</div>
+
+<script src="../../static/js/cartsClient.js" defer></script>

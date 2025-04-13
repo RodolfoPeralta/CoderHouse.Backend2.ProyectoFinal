@@ -1,0 +1,20 @@
+<div class="productDetailsContainer">
+    <h2>Detalle del producto</h2>
+    <div class="productContainer">
+        {{#if error}}
+            <p>Error leyendo el producto seleccionado desde la base de datos.</p>
+        {{else}}
+            {{#if product}}
+                <p><span>Título:</span> {{product.title}}</p> 
+                <p><span>Category:</span> {{product.category}}</p>
+                <p><span>Descripción:</span> {{product.description}}</p>
+                <br> 
+                <p><span>Código:</span> {{product.code}}</p>
+                <p><span>Status:</span> {{product.status}}</p>
+                <br><br>
+                <p><span>Precio:</span> ${{product.price}}</p> 
+                <p><span>Stock:</span> {{product.stock}}</p>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>

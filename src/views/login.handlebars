@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/login-style.css"/>
+    <title>API Rest</title>
+</head>
+<body>
+    <main>
+        <div class="login-container">
+            <div class=" login-logo">
+                <img src="../static/assets/img/api-logo.png" alt="API Logo.">
+            </div>
+            <div class="login-item login-content">
+                <h2>Iniciar Sesión</h2>
+                <form action="/api/sessions/login" method="POST">
+                    <div class="login-item item2">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="login-item item3">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+    
+                    <button type="submit">Ingresar</button>
+                </form>
+
+                <p>¿No tenes una cuenta? <a href="/register">Registrate</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

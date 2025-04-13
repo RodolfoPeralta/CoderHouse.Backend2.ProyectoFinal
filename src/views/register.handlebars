@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/login-style.css"/>
+
+    <title>API Rest</title>
+</head>
+<body>
+    <main>
+        <div class="register-container">
+            <h2>Registrarse</h2>
+            <form action="/api/sessions/register" method="POST">
+                <label for="first_name">Nombre:</label>
+                <input id="first_name" name="first_name" type="text" required>
+
+                <label for="last_name">Apellido:</label>
+                <input id="last_name" name="last_name" type="text" required>
+
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="email" required>
+
+                <label for="age">Edad:</label>
+                <input id="age" name="age" type="number" min="1" max="100" required>
+
+                <label for="password">Contraseña:</label>
+                <input id="password" name="password" type="password" required>
+
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

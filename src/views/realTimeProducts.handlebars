@@ -1,0 +1,50 @@
+<div class="realTimeProductsContainer">
+    <div class="contentContainer">
+        <h2>Lista de productos en tiempo real</h2>
+        <div id="prodContainer"></div>
+    </div>
+    <form id="productsForm" class="formContainer">
+        <h2>Agregar Producto:</h2>
+        <div class="f-item">
+            <label for="title">Título</label>
+            <input id="title" type="text" placeholder="título" required>
+        </div>
+        <div class="f-item">
+            <label for="description">Descripción</label>
+            <input id="description" type="text" placeholder="Descripción" required>
+        </div>
+        <div class="f-item">
+            <label for="code">Código</label>
+            <input id="code" type="text" placeholder="Código" required>
+        </div>
+        <div class="f-item">
+            <label for="price">Precio</label>
+            <input id="price" type="number" placeholder="Precio" required>
+        </div>
+        <div class="f-item">
+            <label for="status">Status</label>
+            <input type="checkbox" checked name="status" id="status">
+        </div>
+        <div class="f-item">
+            <label for="stock">Stock</label>
+            <input id="stock" type="number" min="0" name="stock" id="stock" required>
+        </div>
+        <div class="f-item">
+            <label for="category">Categoría</label>
+            <select id="category" name="category" id="category" required>
+                <option value="Electric Guitar">Eléctrica</option>
+                <option value="Acoustic Guitar">Acústica</option>
+                <option value="Classic Guitar">Clásica</option>
+            </select>
+        </div>
+        <div class="f-item">
+            <label for="image">Imagen</label>
+            <input id="image" type="file" name="image" id="image">
+        </div>
+
+        <button id="send-btn" class="send-btn" type="button">Enviar</button>
+    </form>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="../../static/js/socketClient.js"></script>
