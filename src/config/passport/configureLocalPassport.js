@@ -1,3 +1,4 @@
+const CartManager = require('../../managers/CartManager');
 const UserManager = require('../../managers/UserManager');
 const BcryptUtils = require('../../Utils/BcryptUtils');
 const LocalStrategy = require("passport-local").Strategy;
@@ -19,11 +20,14 @@ async function register(request, email, password, done) {
             return done(null, false, "User already exists");
         }
 
+        const cart = await CartManager.createCart();
+
         const newUser = {
             first_name,
             last_name,
             email,
             age,
+            cart,
             password: BcryptUtils.createHash(password)
         }
 

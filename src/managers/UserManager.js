@@ -71,16 +71,6 @@ class UserManager {
             throw error;
         }
     }
-
-    // Delete all users
-    static async deleteAllUsers() {
-        try {
-            return await MongoDbService.deleteAll(User);
-        }
-        catch(error) {
-            throw error;
-        }
-    }
 }
 
 module.exports = UserManager;

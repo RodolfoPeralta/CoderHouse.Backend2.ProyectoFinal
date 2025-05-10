@@ -183,6 +183,37 @@ class CartManagerController {
             return response.status(500).json({Status: "Error", Message: `${error}`});
         }
     }
+
+    static async deleteCarts(request, response) {
+        try {
+            if(await CartManager.deleteCarts()) {
+                return response.status(200).json({Status: "Success", Message: "All carts deleted"});
+            }
+        }
+        catch(error) {
+            return response.status(500).json({Status: "Error", Message: `${error}`});
+        }
+    }
+
+    static async deleteCartById(request, response) {
+        try {
+            const cid = request.params.cid;
+
+            if(!cid) {
+                return response.status(400).json({Status: "Error", Message: "Cart Id parameter is required"});
+            }
+
+            if(await CartManager.deleteProduct(cid)) {
+                response.status(200).json({Status: "Success", Message: "Cart deleted"});
+            }
+            else {
+                response.status(404).json({Status: "Error", Message: `Cart with id '${cid}' not founded`});
+            }           
+        }
+        catch(error) {
+            return response.status(500).json({Status: "Error", Message: `${error}`});
+        }
+    }
 }
 
 module.exports = CartManagerController;

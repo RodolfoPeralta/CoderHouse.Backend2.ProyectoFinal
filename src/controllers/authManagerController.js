@@ -1,5 +1,6 @@
-const passport = require("passport");
 const JwtService = require("../services/JwtService");
+const CurrentUserDto = require("../dtos/CurrentUserDto");
+const EmailService = require("../services/EmailService");
 
 class AuthManagerController {
 
@@ -12,19 +13,22 @@ class AuthManagerController {
             }
 
             if(!request.user) {
-                if(request.headers['content-type'] === 'application/x-www-form-urlencoded') {
+                if(request.is('application/x-www-form-urlencoded')) {
                     return response.redirect("/register");
                 }
 
-                return response.status(400).json({ Status: "Error", Message: "User  registration failed." });
+                return response.status(400).json({ Status: "Error", Message: "User registration failed." });
             }
 
-            request.login(request.user, (err) => {
+            request.login(request.user, async (err) => {
                 
-                if(!(request.headers['content-type'] === 'application/x-www-form-urlencoded')) {
+                if(!(request.is('application/x-www-form-urlencoded'))) {
                     const token = JwtService.generateToken(request.user);
+                    await EmailService.sendUserRegisterEmail(request.user);
                     return response.header("Authorization", `Bearer ${token}`).status(200).json({ Status: "Success", Token: token, Payload: request.user });
                 }
+
+                await EmailService.sendUserRegisterEmail(request.user);
 
                 return response.redirect("/");
             });
@@ -42,7 +46,7 @@ class AuthManagerController {
 
             request.login(request.user, (err) => {
                 
-                if(!(request.headers['content-type'] === 'application/x-www-form-urlencoded')) {
+                if(!(request.is('application/x-www-form-urlencoded'))) {
                     const token = JwtService.generateToken(request.user);
                     return response.header("Authorization", `Bearer ${token}`).status(200).json({ Status: "Success", Token: token, Payload: request.user });
                 }
@@ -67,7 +71,7 @@ class AuthManagerController {
                     return response.status(500).json({ Status: "Error", Message: "Error closing session" });
                 }
             
-                if(!(request.headers['content-type'] === 'application/x-www-form-urlencoded')) {
+                if(!(request.is('application/x-www-form-urlencoded'))) {
                     return response.status(200).json({ Status: "Success", Message: "Closed session" });
                 }
 
@@ -82,13 +86,19 @@ class AuthManagerController {
 
     static getCurrentUser(request, response) {
         try {
+            if (!request.session || !request.session.passport) {
+                return response.status(400).json({ Status: "Error", Message: "Session closed or does not exist" });
+            }
+
             if (!request.user) {
                 return response.status(401).json({ Status: "Error", Message: "Unauthorized" });
             }
 
             if(request.user) {
-                if(!(request.headers['content-type'] === 'application/x-www-form-urlencoded')) {
-                    return response.status(200).json({ Status: "Success", Payload: request.user });
+                const dto = new CurrentUserDto(request.user);
+
+                if(!(request.is('application/x-www-form-urlencoded'))) {
+                    return response.status(200).json({ Status: "Success", Payload: dto });
                 }
             }
         } catch (error) {

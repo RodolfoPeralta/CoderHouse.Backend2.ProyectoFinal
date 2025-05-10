@@ -11,7 +11,6 @@ const configureLocalPassport = require('./config/passport/configureLocalPassport
 const configureJwtPassport = require('./config/passport/configureJwtPassport');
 require("dotenv").config();
 
-
 const app = express();
 
 // MongoDB connection path

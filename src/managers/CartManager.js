@@ -67,6 +67,15 @@ class CartManager {
         }
     }
 
+    static async deleteCartById(id) {
+        try {
+            return await MongoDbService.deleteById(Carts, id);
+        }
+        catch(error) {
+            throw error;
+        }
+    }
+
     // Deletes a products list to cart by id
     static async deleteProductsToCartById(id) {
         try {

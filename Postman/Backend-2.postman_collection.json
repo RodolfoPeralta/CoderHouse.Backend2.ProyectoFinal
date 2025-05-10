@@ -190,7 +190,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carts/67d35563a0959615b7d306d8",
+							"raw": "http://localhost:8080/api/carts/681fc0a99795d33c2e8c5a44",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -199,7 +199,7 @@
 							"path": [
 								"api",
 								"carts",
-								"67d35563a0959615b7d306d8"
+								"681fc0a99795d33c2e8c5a44"
 							]
 						}
 					},
@@ -231,7 +231,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carts/67e00f44dbf338aa1c228868/product/67bfa59347c43bf39c7d60ee",
+							"raw": "http://localhost:8080/api/carts/681fc0a99795d33c2e8c5a44/product/67bfa59b47c43bf39c7d60f0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -240,9 +240,9 @@
 							"path": [
 								"api",
 								"carts",
-								"67e00f44dbf338aa1c228868",
+								"681fc0a99795d33c2e8c5a44",
 								"product",
-								"67bfa59347c43bf39c7d60ee"
+								"67bfa59b47c43bf39c7d60f0"
 							]
 						}
 					},
@@ -385,7 +385,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/users/67fbf05aa12cc66b692e9b4c",
+							"raw": "http://localhost:8080/api/users/681fc0a99795d33c2e8c5a46",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -394,7 +394,7 @@
 							"path": [
 								"api",
 								"users",
-								"67fbf05aa12cc66b692e9b4c"
+								"681fc0a99795d33c2e8c5a46"
 							]
 						}
 					},
@@ -479,26 +479,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Delete All Users",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"users"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -543,7 +523,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2ZiZjJiNzRmZWJlMmE3NTIwZDE3NGQiLCJlbWFpbCI6InJvZG9sZm9wZXJhbHRhMTk5NEBob3RtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJSb2RvbGZvIiwibGFzdF9uYW1lIjoiUGVyYWx0YSIsImFnZSI6MzAsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ0NTY0OTQwLCJleHAiOjE3NDQ1NjUyNDB9.Q-SVh3KwZguBJqPA3w6xnNELP3nCotD6aU4pgl_O4kI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODEzNjE2YzFlYzIwM2VkOGI4NGMwNDciLCJlbWFpbCI6InJvZG9sZm9wZXJhbHRhMTk5NEBob3RtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJSb2RvbGZvIiwibGFzdF9uYW1lIjoiUGVyYWx0YSIsImFnZSI6MzAsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ2MTA1NTU5LCJleHAiOjE3NDYxMDU4NTl9.oRl2pqP4TPxM0EqEBF7IMfoaT1C0ZEHFjdn7idrtdAc",
 									"type": "string"
 								}
 							]
@@ -628,6 +608,193 @@
 								"api",
 								"sessions",
 								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Password",
+			"item": [
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rodolfoperalta1994@hotmail.com\",\r\n    \"password\": \"123456\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJvZG9sZm9wZXJhbHRhMTk5NEBob3RtYWlsLmNvbSIsImlhdCI6MTc0NjExOTc4MCwiZXhwIjoxNzQ2MTIzMzgwfQ.aI-ihKEuqyIvQyyTP0DaVP6hFoUu6TTYkoaxHQwXL_8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/password/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"password",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rodolfoperalta1994@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/password/forgot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"password",
+								"forgot"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "Get Tickets",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Create Ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Rodolfo Peralta\",\r\n    \"email\": \"rodolfoperalta1994@hotmail.com\",\r\n    \"cart\": \"67d58ad98408f1ef508f8fb3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Rodolfo Peralta\",\r\n    \"email\": \"rodolfoperalta1994@hotmail.com\",\r\n    \"cart\": \"67d58ad98408f1ef508f8fb3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tickets/6819190f4cfe19e996fb68f1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets",
+								"6819190f4cfe19e996fb68f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ticket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tickets/6819190f4cfe19e996fb68f1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets",
+								"6819190f4cfe19e996fb68f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ticket By Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tickets/purchase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tickets",
+								"purchase"
 							]
 						}
 					},
